@@ -1,17 +1,14 @@
-# Utilise une image officielle de Python comme base
+# Utiliser l'image Python 3.9 comme base
 FROM python:3.9-slim
 
-# Définit le répertoire de travail dans le conteneur
+# Définir le répertoire de travail
 WORKDIR /app
 
-# Copie tout le contenu du répertoire courant (ton projet) dans le répertoire de travail du conteneur
+# Copier les fichiers de l'application
 COPY . .
 
-# Installe Flask
-RUN pip install Flask
+# Installer les dépendances
+RUN pip install -r requirements.txt
 
-# Expose le port 8000
-EXPOSE 8000
-
-# Démarre l'application Flask
-CMD ["python", "test.py"]
+# Spécifier la commande pour exécuter l'application
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app"]
