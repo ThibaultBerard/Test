@@ -14,4 +14,4 @@ RUN pip install Flask
 EXPOSE 8000
 
 # Démarre l'application Flask
-CMD ["python", "app.py"]
+CMD ["python", "test.py"]
