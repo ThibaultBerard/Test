@@ -7,8 +7,5 @@ WORKDIR /app
 # Copie tout le contenu du répertoire courant (ton projet) dans le répertoire de travail du conteneur
 COPY . .
 
-# Expose un port (exemple : 8000)
-EXPOSE 8000
-
 # Commande à exécuter
 CMD ["python", "test.py"]
