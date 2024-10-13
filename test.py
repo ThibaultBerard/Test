@@ -1,9 +1,10 @@
-print("Hello World")
+from flask import Flask
 
-a = 1
-b = 2 
+app = Flask(__name__)
 
-if a == b:
-  print("Faux")
-else : 
-  print("Vrai")
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
