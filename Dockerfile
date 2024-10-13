@@ -4,8 +4,14 @@ FROM python:3.9-slim
 # Définit le répertoire de travail dans le conteneur
 WORKDIR /app
 
-# Copie tout le contenu du répertoire courant (ton projet) dans le répertoire de travail du conteneur
+# Copie le contenu du répertoire courant dans le répertoire de travail
 COPY . .
 
-# Commande à exécuter
-CMD ["python", "test.py"]
+# Installe Flask (et autres dépendances si nécessaire)
+RUN pip install Flask
+
+# Expose le port 8000
+EXPOSE 8000
+
+# Commande pour démarrer l'application Flask
+CMD ["python", "app.py"]
